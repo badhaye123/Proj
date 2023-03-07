@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Approve Request </title>
+</head>
+<body>
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th>Type</th>
+            <th>Requester</th>
+            <th>Date of Deployment</th>
+            <th>Commit_id</th>
+            <th>Branch</th>
+            <th>Deployed Environment</th>
+            <th>Changes</th>
+            <th>Status</th>
+            <th>Timestamp</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+        {% for req in approval_requests %}
+        <tr>
+            <td>{{req.type}}</td>
+            <td>{{req.requester}}</td>
+            <td>{{red.date_of_deployment}}</td>
+            <td>{{req.commit_id}}</td>
+            <td>{{req.branch}}</td>
+            <td>{{req.deployed_environment}}</td>
+            <td>{{req.changes}}</td>
+            <td>{{req.status}}</td>
+            <td><a href="{% url 'approve_request' req.id %}"><button>Approve</a></td>
+        </tr>
+        {% endfor %}
+        <tbody>
+</body>
+</html>
